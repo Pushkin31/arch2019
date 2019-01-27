@@ -20,7 +20,6 @@ rm -rf aurman
 echo 'Установка программ'
 sudo pacman -S firefox  gimp libreoffice libreoffice-fresh-ru  screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview --noconfirm
 
-
 echo 'Включаем сетевой экран'
 sudo ufw enable
 
