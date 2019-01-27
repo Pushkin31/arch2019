@@ -22,7 +22,7 @@ echo '2.3 Синхронизация системных часов'
 timedatectl set-ntp true
 
 echo '2.4 создание разделов'
-fdisk /dev/sda
+(
   echo o;
 
   echo n;
@@ -35,14 +35,13 @@ fdisk /dev/sda
   echo;
   echo;
   echo;
-  echo +10G;
-  
-#Если нужен swap-расскомментировать  
-  #echo n;
-  #echo p;
-  #echo;
-  #echo;
-  #echo +1024M;
+  echo +20G;
+
+  echo n;
+  echo;
+  echo;
+  echo;
+  echo +1024M;
 
   echo n;
   echo p;
@@ -52,29 +51,27 @@ fdisk /dev/sda
   echo 1;
 
   echo w;
-
+) | fdisk /dev/sda
 
 echo 'Ваша разметка диска'
 fdisk -l
 
 echo '2.4.2 Форматирование дисков'
-#Если сделан swap:расскомментировать строку и изменить номер у директории "home"(изменить на sda4)
 mkfs.ext2  /dev/sda1 -L boot
 mkfs.ext4  /dev/sda2 -L root
-#mkswap /dev/sda3 -L swap
-mkfs.ext4  /dev/sda3 -L home
+mkswap /dev/sda3 -L swap
+mkfs.ext4  /dev/sda4 -L home
 
 echo '2.4.3 Монтирование дисков'
-#Если сделан swap:расскомментировать строку и изменить номер у директории "home"(изменить на sda4)
 mount /dev/sda2 /mnt
 mkdir /mnt/{boot,home}
 mount /dev/sda1 /mnt/boot
-#swapon /dev/sda3
-mount /dev/sda3 /mnt/home
+swapon /dev/sda3
+mount /dev/sda4 /mnt/home
 
-echo '3.1 Выбор зеркал для загрузки. Ставим зеркало от Яндекс'
-echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-#или же "Server = http://mirrors.prok.pw/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
+echo '3.1 Выбор зеркал для загрузки. Ставим зеркало'
+#echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirrors.prok.pw/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
 pacstrap /mnt base base-devel
