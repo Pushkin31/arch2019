@@ -15,6 +15,7 @@
 wget raw.github.com/Pushkin31/arch2019/master/arch1.sh
 
 После запустить
+
 sh arch1.sh
 
 P.s:arch2.sh подгружается автоматически
