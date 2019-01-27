@@ -60,7 +60,7 @@ echo '2.4.3 Монтирование дисков'
 mount /dev/sda2 /mnt
 mkdir /mnt/{boot,home}
 mount /dev/sda1 /mnt/boot
-mount /dev/sda4 /mnt/home
+mount /dev/sda3 /mnt/home
 
 echo '3.1 Выбор зеркал для загрузки. Ставим зеркало'
 echo "Server = http://mirrors.prok.pw/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
