@@ -47,11 +47,6 @@ echo '[multilib]' >> /etc/pacman.conf
 echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
 pacman -Syy
 
-echo 'Раскомментируем репозиторий extra'
-echo '[extra]' >> /etc/pacman.conf
-echo 'Include = /etc/pacman.d/mirrorlist' >> /etc/pacman.conf
-pacman -Syu
-
 echo "Куда устанавливем Arch Linux на виртуальную машину?"
 read -p "1 - Да, 0 - Нет: " vm_setting
 if [[ $vm_setting == 0 ]]; then
