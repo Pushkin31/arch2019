@@ -23,8 +23,6 @@ timedatectl set-ntp true
 
 echo '2.4 создание разделов'
 (
-  echo o;
-
   echo n;
   echo;
   echo;
@@ -62,8 +60,8 @@ mkdir /mnt/{boot,home}
 mount /dev/sda1 /mnt/boot
 mount /dev/sda3 /mnt/home
 
-echo '3.1 Выбор зеркал для загрузки. Ставим зеркало'
-echo "Server = http://mirrors.prok.pw/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
+echo '3.1 Выбор зеркал для загрузки. Ставим зеркало от Яндекс'
+echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
 pacstrap /mnt base base-devel
