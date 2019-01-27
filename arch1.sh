@@ -37,16 +37,9 @@ echo '2.4 создание разделов'
   echo;
   echo +10G;
   
-#Если нужен swap-расскомментировать  
-  #echo n;
-  #echo p;
-  #echo;
-  #echo;
-  #echo +1024M;
-
   echo n;
-#Если сделали swap-расскомментировать
-#echo p;
+  echo;
+  echo;
   echo;
   echo;
   echo a;
@@ -59,14 +52,11 @@ echo 'Ваша разметка диска'
 fdisk -l
 
 echo '2.4.2 Форматирование дисков'
-#Если сделан swap:расскомментировать строку и изменить номер у директории "home"(изменить на sda4)
 mkfs.ext2  /dev/sda1 -L boot
 mkfs.ext4  /dev/sda2 -L root
-#mkswap /dev/sda3 -L swap
 mkfs.ext4  /dev/sda3 -L home
 
 echo '3.1 Выбор зеркал для загрузки. Ставим зеркало'
-#echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.prok.pw/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
 
 echo '3.2 Установка основных пакетов'
