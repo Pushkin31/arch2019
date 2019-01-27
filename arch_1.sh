@@ -82,4 +82,4 @@ pacstrap /mnt base base-devel
 echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
 
-arch-chroot /mnt sh -c "$(curl -fsSL ordanax.ru/arch/arch_2.sh)"
+arch-chroot /mnt sh -c "$(curl -fsSL https://github.com/Pushkin31/arch2019/arch_2.sh)"
