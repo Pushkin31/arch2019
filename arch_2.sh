@@ -64,7 +64,7 @@ echo 'Ставим иксы и драйвера'
 pacman -S $gui_install
 
 echo 'Ставим Plasma, kdebase, sddm и сеть'
-pacman -S kf5 kf5-aids plasma kdebase gwenview sddm sddm-kcm networkmanager network-manager-applet --noconfirm
+pacman -S kf5 kf5-aids plasma kdebase sddm sddm-kcm networkmanager network-manager-applet --noconfirm
 
 echo 'Ставим шрифты'
 pacman -S ttf-liberation ttf-dejavu --noconfirm
