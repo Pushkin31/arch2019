@@ -22,7 +22,7 @@ echo '2.3 Синхронизация системных часов'
 timedatectl set-ntp true
 
 echo '2.4 создание разделов'
-(
+fdisk /dev/sda
   echo o;
 
   echo n;
@@ -52,7 +52,7 @@ echo '2.4 создание разделов'
   echo 1;
 
   echo w;
-) | fdisk /dev/sda
+
 
 echo 'Ваша разметка диска'
 fdisk -l
@@ -82,4 +82,4 @@ pacstrap /mnt base base-devel
 echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
 
-arch-chroot /mnt sh -c "$(curl -fsSL https://github.com/Pushkin31/arch2019/arch_2.sh)"
+arch-chroot /mnt sh -c "$(curl -fsSL ordanax.ru/arch/arch_2.sh)"
