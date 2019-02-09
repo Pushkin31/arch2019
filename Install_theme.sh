@@ -1,9 +1,4 @@
 #!/bin/bash
-git clone https://github.com/vinceliuice/grub2-themes.git
-makepkg -si --needed --noconfirm --skippgpcheck
-
-
-
 echo 'Установка темы для grub'
 
 ROOT_UID=0
