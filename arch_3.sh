@@ -1,6 +1,6 @@
 #!/bin/bash
-sudo pacman -S git --noconfirm
 sudo pacman -Syu
+sudo pacman -S git --noconfirm
 
 mkdir -p /tmp/yay_install
 cd /tmp/yay_install
