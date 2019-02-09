@@ -17,7 +17,7 @@ sudo pacman -Syu
 mkdir -p /tmp/pamac-aur_install
 cd /tmp/pamac-aur_install
 
-'Установка "pamac-aur" из AUR'
+echo 'Установка "pamac-aur" из AUR'
 git clone https://aur.archlinux.org/pamac-aur.git
 cd pamac-aur
 makepkg -si --needed --noconfirm --skippgpcheck
@@ -25,7 +25,7 @@ rm -rf pamac-aur_install
 
 
 echo 'Установка программ'
-sudo pacman -S ufw firefox  gimp libreoffice libreoffice-fresh-ru  screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview --noconfirm
+sudo pacman -S ufw firefox gimp libreoffice libreoffice-fresh-ru screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview --noconfirm
 
 echo 'Включаем сетевой экран'
 sudo ufw enable
