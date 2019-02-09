@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo pacman -S git
 sudo pacman -Syu
 
 mkdir -p /tmp/yay_install
