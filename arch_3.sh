@@ -1,6 +1,10 @@
 #!/bin/bash
 sudo pacman -Syu
 sudo pacman -S git --noconfirm
+sudo pacman -S wget --noconfirm
+
+sudo pacman -S nvidia  nvidia-utils  lib32-nvidia-utils
+
 
 mkdir -p /tmp/yay_install
 cd /tmp/yay_install
@@ -27,8 +31,42 @@ rm -rf pamac-aur_install
 echo 'Установка программ'
 sudo pacman -S ufw firefox firefox-i18n-ru gimp libreoffice libreoffice-fresh-ru screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview --noconfirm
 
+echo 'Установка графической оболочки для su и sudo'
+yay -S gksu
+
+#Открываем любой каталог
+
+#Правка - особые действия
+
+#Открыть с правами root
+#gksu thunar %f
+#Условия появления - каталоги
+
+#Редактировать с правами root
+#gksu mousepad %f
+#Условия появления - текстовые файлы
+
+#Cменить владельца файла на root
+#gksu chown root %F
+#Условия появления - каталоги и текстовые файлы
+
+#Cменить владельца каталога на root
+#gksu chown root %F
+#Условия появления - каталоги и текстовые файлы
+
+#Cменить владельца на User123
+#gksu chown User123 %F
+#Условия появления - каталоги и текстовые файлы
+
+#Cменить владельца каталога на User123
+#gksu chown User123 %F
+#Условия появления - каталоги и текстовые файлы
+
+
 echo 'Включаем сетевой экран'
 sudo ufw enable
 
+echo 'Добавляем в автозагрузку:'
+sudo systemctl enable ufw
+
 echo 'Установка завершена!'
-rm -rf ~/arch_3.sh

@@ -70,4 +70,3 @@ echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt sh -c "$(curl -fsSL https://raw.github.com/Pushkin31/arch2019/master/arch_2.sh)"
- простая проба

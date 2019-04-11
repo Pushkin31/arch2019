@@ -20,9 +20,6 @@ echo 'FONT=cyr-sun16' >> /etc/vconsole.conf
 echo 'Создадим загрузочный RAM диск'
 mkinitcpio -p linux
 
-echo 'Создаем root пароль'
-passwd
-
 echo '3.5 Устанавливаем загрузчик'
 pacman -Syy
 pacman -S grub --noconfirm 
@@ -37,8 +34,12 @@ pacman -S dialog wpa_supplicant --noconfirm
 echo 'Добавляем пользователя'
 useradd -m -g users -G wheel -s /bin/bash mxn
 
+echo 'Создаем root пароль'
+passwd
+
 echo 'Устанавливаем пароль пользователя'
 passwd mxn
+
 echo 'Устанавливаем SUDO'
 echo '%wheel ALL=(ALL) ALL' >> /etc/sudoers
 
@@ -59,7 +60,7 @@ echo 'Ставим иксы и драйвера'
 pacman -S $gui_install
 
 echo 'Ставим Plasma, kdebase, sddm и сеть'
-pacman -S kf5 kf5-aids plasma kdebase sddm sddm-kcm networkmanager network-manager-applet --noconfirm
+pacman -S kf5 kf5-aids plasma kdebase sddm sddm-kcm networkmanager network-manager-applet ppp --noconfirm
 
 echo 'Ставим шрифты'
 pacman -S ttf-liberation ttf-dejavu --noconfirm
