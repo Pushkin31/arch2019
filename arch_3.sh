@@ -3,6 +3,7 @@ sudo pacman -Syu
 sudo pacman -S git --noconfirm
 sudo pacman -S wget --noconfirm
 
+echo Установка драйверов nvidia
 sudo pacman -S nvidia  nvidia-utils  lib32-nvidia-utils
 
 
