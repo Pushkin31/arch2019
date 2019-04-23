@@ -33,13 +33,13 @@ echo '2.4 создание разделов'
   echo;
   echo;
   echo;
-  echo +5G;
+  echo +25G;
 
   echo n;
   echo;
   echo;
   echo;
-  echo +5G;
+  echo +25G;
   echo a;
   echo 1;
   
@@ -77,4 +77,4 @@ pacstrap /mnt base base-devel
 echo '3.3 Настройка системы'
 genfstab -pU /mnt >> /mnt/etc/fstab
 
-#arch-chroot /mnt sh -c "$(curl -fsSL https://raw.github.com/Pushkin31/arch2019/master/arch_2.sh)"
+arch-chroot /mnt sh -c "$(curl -fsSL https://raw.github.com/Pushkin31/arch2019/master/arch_2.sh)"
