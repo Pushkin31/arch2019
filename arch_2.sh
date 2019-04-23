@@ -51,7 +51,7 @@ pacman -Syy
 echo "Куда устанавливем Arch Linux на виртуальную машину?"
 read -p "1 - Да, 0 - Нет: " vm_setting
 if [[ $vm_setting == 0 ]]; then
-  gui_install="xorg-server xorg-drivers xorg-xinit"
+  gui_install="xorg-server xorg-drivers xorg-xinit xorg-apps mesa xterm xorg-twm xorg-xclock"
 elif [[ $vm_setting == 1 ]]; then
   gui_install="xorg-server xorg-drivers xorg-xinit virtualbox-guest-utils"
 fi
@@ -63,7 +63,7 @@ echo 'Ставим Plasma, kdebase, sddm и сеть'
 pacman -S kf5 kf5-aids plasma kdebase sddm sddm-kcm networkmanager network-manager-applet ppp --noconfirm
 
 echo 'Ставим шрифты'
-pacman -S ttf-liberation ttf-dejavu --noconfirm
+pacman -S ttf-liberation ttf-dejavu opendesktop-fonts ttf-bitstream-vera ttf-arphic-ukai ttf-arphic-uming ttf-hanazono --noconfirm
 
 echo 'Подключаем автозагрузку менеджера входа и интернет'
 systemctl enable sddm NetworkManager
