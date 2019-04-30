@@ -25,16 +25,16 @@ timedatectl set-ntp true
 echo 'Ваша разметка диска'
 fdisk -l
 
-echo '2.4.2 Форматирование дисков'
-mkfs.ext2  /dev/sda7 -L boot
-mkfs.ext4  /dev/sda6 -L root
-mkfs.ext4  /dev/sda5 -L home
 
-echo '2.4.3 Монтирование дисков'
-mount /dev/sda6 /mnt
-mkdir /mnt/{boot,home}
-mount /dev/sda7 /mnt/boot
-mount /dev/sda5 /mnt/home
+
+
+
+
+
+
+
+
+
 
 echo '3.1 Выбор зеркал для загрузки. Ставим зеркало от Яндекс'
 echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
