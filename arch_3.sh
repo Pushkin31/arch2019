@@ -30,7 +30,7 @@ rm -rf pamac-aur_install
 
 
 echo 'Установка программ'
-sudo pacman -S ufw firefox firefox-i18n-ru gimp libreoffice libreoffice-fresh-ru screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview --noconfirm
+sudo pacman -S ufw firefox firefox-i18n-ru gimp libreoffice libreoffice-fresh-ru screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview spectacle packagekit-qt5 --noconfirm
 
 echo 'Установка графической оболочки для su и sudo'
 yay -S gksu
