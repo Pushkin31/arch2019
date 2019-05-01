@@ -22,14 +22,11 @@ mkinitcpio -p linux
 
 echo '3.5 Устанавливаем загрузчик'
 pacman -Syy
-pacman -S grub --noconfirm 
+pacman -S grub os-prober --noconfirm 
 grub-install /dev/sda
 
 echo 'Обновляем grub.cfg'
 grub-mkconfig -o /boot/grub/grub.cfg
-
-echo 'Установка os-prober' 
-Pacman -S os-prober --nocofirm
 
 echo 'Ставим программу для Wi-fi'
 pacman -S dialog wpa_supplicant --noconfirm 
