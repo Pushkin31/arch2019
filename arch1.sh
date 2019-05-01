@@ -13,10 +13,11 @@
 # Александр Хрипушин https://vk.com/aleks_hripushin
 # Артём Духовный https://vk.com/hoasker
 
-loadkeys ru
-setfont cyr-sun16
 echo 'Скрипт сделан на основе чеклиста Бойко Алексея по Установке ArchLinux'
 echo 'Ссылка на чек лист есть в группе vk.com/arch4u'
+
+loadkeys ru
+setfont cyr-sun16
 
 echo '2.3 Синхронизация системных часов'
 timedatectl set-ntp true
