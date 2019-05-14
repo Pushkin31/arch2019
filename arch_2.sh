@@ -21,6 +21,7 @@ echo 'Создадим загрузочный RAM диск'
 mkinitcpio -p linux
 
 echo '3.5 Устанавливаем загрузчик'
+#os-prober нужен,если рядом есть windows
 pacman -Syy
 pacman -S grub os-prober --noconfirm 
 grub-install /dev/sda
@@ -29,7 +30,7 @@ echo 'Обновляем grub.cfg'
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo 'Ставим программу для Wi-fi'
-pacman -S dialog wpa_supplicant --noconfirm 
+pacman -S dialog wpa_supplicant --noconfirm
 
 echo 'Добавляем пользователя'
 useradd -m -g users -G wheel -s /bin/bash mxn
