@@ -4,7 +4,7 @@ sudo pacman -S git --noconfirm
 sudo pacman -S wget --noconfirm
 
 echo Установка драйверов nvidia
-sudo pacman -S nvidia  nvidia-utils  lib32-nvidia-utils
+sudo pacman -S nvidia  nvidia-utils  lib32-nvidia-utils nvidia-settings
 
 
 mkdir -p /tmp/yay_install
@@ -30,7 +30,9 @@ rm -rf pamac-aur_install
 
 
 echo 'Установка программ'
-sudo pacman -S ufw firefox firefox-i18n-ru gimp libreoffice libreoffice-fresh-ru screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview spectacle packagekit-qt5 --noconfirm
+sudo pacman -S ufw firefox firefox-i18n-ru gimp libreoffice libreoffice-fresh-ru screenfetch vlc qbittorrent f2fs-tools dosfstools ntfs-3g alsa-lib alsa-utils gnome-calculator file-roller p7zip pulseaudio gwenview qt4 packagekit-qt5 exfat-utils filezilla thunar htop keepass --noconfirm
+
+yay -S flameshot-git svp telegram-desktop octopi jmtpfs notepadqq --noconfirm
 
 echo 'Установка графической оболочки для su и sudo'
 yay -S gksu
