@@ -22,8 +22,50 @@ setfont cyr-sun16
 echo '2.3 Синхронизация системных часов'
 timedatectl set-ntp true
 
+  echo n;
+  echo;
+  echo;
+  echo;
+  echo +200M;
+
+  echo n;
+  echo;
+  echo;
+  echo;
+  echo +25G;
+
+  echo n;
+  echo;
+  echo;
+  echo;
+  echo +25G;
+  echo a;
+  echo 1;
+
+  #echo n;
+  #echo;
+  #echo;
+  #echo;
+  #echo;
+  #echo a;
+  #echo 1;
+
+  echo w;
+) | fdisk /dev/sda
+
 echo 'Ваша разметка диска'
 fdisk -l
+
+echo '2.4.2 Форматирование дисков'
+mkfs.ext2  /dev/sda3 -L boot
+mkfs.ext4  /dev/sda4 -L root
+mkfs.ext4  /dev/sda5 -L home
+
+echo '2.4.3 Монтирование дисков'
+mount /dev/sda4 /mnt
+mkdir /mnt/{boot,home}
+mount /dev/sda3 /mnt/boot
+mount /dev/sda5 /mnt/home
 
 echo '3.1 Выбор зеркал для загрузки. Ставим зеркало от Яндекс'
 echo "Server = http://mirror.yandex.ru/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
