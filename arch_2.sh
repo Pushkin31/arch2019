@@ -52,7 +52,7 @@ pacman -Syy
 echo "Куда устанавливем Arch Linux на виртуальную машину?"
 read -p "1 - Да, 0 - Нет: " vm_setting
 if [[ $vm_setting == 0 ]]; then
-  gui_install="xorg-server xorg-drivers xorg-xinit xorg-apps mesa xterm xorg-twm xorg-xclock"
+  gui_install="xorg-server xorg-drivers xorg-xinit"
 elif [[ $vm_setting == 1 ]]; then
   gui_install="xorg-server xorg-drivers xorg-xinit virtualbox-guest-utils"
 fi
@@ -60,14 +60,24 @@ fi
 echo 'Ставим иксы и драйвера'
 pacman -S $gui_install
 
-echo 'Ставим Plasma, kdebase, sddm и сеть'
-pacman -S kf5 kf5-aids plasma kdebase sddm sddm-kcm networkmanager network-manager-applet ppp --noconfirm
+echo "Plasma & XFCE?"
+echo 'WM + сеть' 
+read -p "1 - Plasma, 0 - XFCE: " vm_setting
+if [[ $vm_setting == 0 ]]; then
+  gui_install="pacman -S kf5 kf5-aids plasma kdebase networkmanager network-manager-applet ppp --noconfirm"
+elif [[ $vm_setting == 1 ]]; then
+  gui_install="pacman -S xfce4 xfce4-goodies networkmanager network-manager-applet ppp --noconfirm"
+fi
+
+echo 'Cтавим DM'
+pacman -S lxdm --noconfirm
+systemctl enable lxdm
 
 echo 'Ставим шрифты'
 pacman -S ttf-liberation ttf-dejavu opendesktop-fonts ttf-bitstream-vera ttf-arphic-ukai ttf-arphic-uming ttf-hanazono --noconfirm
 
 echo 'Подключаем автозагрузку менеджера входа и интернет'
-systemctl enable sddm NetworkManager
+systemctl enable NetworkManager
 
 echo 'Перезагрузка. После перезагрузки заходим под пользователем'
 exit
